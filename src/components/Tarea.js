@@ -1,16 +1,20 @@
-import React from 'react';
+export default function Tarea({tarea, handleEditItem, toggleTarea}) {
+    function handleEdit() {
+        handleEditItem(tarea.id);
+    }
 
-export default function Tarea({tarea, toggleTarea}) {
-    function handleTarea() {
+    function handleTarea(){
         toggleTarea(tarea.id);
     }
+
+
     return (
         <div>
             <label>
-                <input type="checkbox" value={tarea.isCompleted} onChange={handleTarea}/>
+                <input type="checkbox" value={tarea.isCompleted} onChange={handleTarea} />
                 {tarea.name}
-                <button onClick={handleAddItem}>Editar</button>
             </label>
+            <button onClick={handleEdit}>Editar</button>
         </div>
     )
 }
